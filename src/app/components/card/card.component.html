@@ -1,0 +1,18 @@
+<div class="card col-sm-12 col-md-6 text-center  ">
+  <div class=" border border-1 rounded-2 border-tertiary-subtle">
+    <div class="popup-gallery"><a > <img src="{{card.image}}" class="card-img-top" alt="..."></a></div>
+    <div class="card-body px-4 py-3">
+      <h5 class="card-title mb-2">{{card.title}}</h5>
+      <span class="fs-4">{{card.price | currency}}</span>
+      <p *ngIf="cardDesc" class="card-text">{{card.description | shortenText }}</p>
+      <p *ngIf="!cardDesc" class="card-text">{{card.description}}</p>
+      <a *ngIf="cardDesc" [routerLink]="['/cards', card.id]" class="btn btn-primary px-5 hvr-shutter-in-vertical">Подробнее</a>
+      <a *ngIf="!cardDesc" [routerLink]="'/'" [queryParams]="{card:card.title}"  class="btn btn-primary px-5 hvr-shutter-in-vertical">Купить</a>
+
+
+    </div>
+  </div>
+</div>
+<div *ngIf="loading" class="loader-bg">
+  <div class="loader"></div>
+</div>
