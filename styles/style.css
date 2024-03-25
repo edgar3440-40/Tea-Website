@@ -1,0 +1,117 @@
+/*body {*/
+/*    width: 900px;*/
+/*    background: blue;*/
+/*    margin: 0 auto;*/
+/*}*/
+body {
+    font-family: Arial, sans-serif;
+}
+
+.slick-arrow {
+    position: absolute;
+    z-index: 100;
+    padding: 20px;
+    border-radius: 50%;
+    background: #FFF;
+    opacity: 1;
+    transition: 200ms;
+    border: 1px solid #076BFF;
+}
+
+.slick-arrow:hover,
+.slick-arrow:focus {
+    background: #FFF;
+    color: #FFF;
+    opacity: .8;
+}
+
+.slick-arrow::before {
+    text-align: center;
+    position: absolute;
+    top: 10px;
+}
+
+.slick-prev::before {
+    content: url("images-main/prev.svg");
+    left: 8px;
+
+}
+
+.slick-next::before {
+    content: url("images-main/next-2.svg");
+    left: 11px;
+}
+
+.slick-prev {
+    left: 15px;
+}
+
+.slick-next {
+    right: 15px;
+}
+
+#accordion {
+    margin: 0 auto;
+}
+
+
+/*h3.ui-accordion-header.ui-corner-top.ui-accordion-header-collapsed.ui-corner-all.ui-state-default.ui-accordion-icons {*/
+/*    padding: 24px;*/
+
+/*}*/
+
+.ui-accordion .ui-accordion-header {
+    padding: 24px ;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 0;
+    color: #FFF;
+    background: #007fff;
+    margin-bottom: 16px;
+}
+
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+    background-image: url("images-main/acardion-brace.png");
+    background-position: center;
+    align-self: flex-end;
+}
+
+
+h3.ui-accordion-header.ui-corner-top.ui-state-default.ui-accordion-icons.ui-accordion-header-active span.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+    background-image: url("images-main/accordion-active.png");
+}
+
+.ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content.ui-accordion-content-active {
+    border: 0;
+}
+
+
+
+.needs-validation {
+    margin: 0 auto;
+}
+
+#validationCustom04 {
+    background-image: none;
+}
+
+
+@media screen and (max-width: 1030px ) {
+    .card-text{
+        min-height: 120px;
+    }
+}
+
+.hvr-shutter-in-vertical::before {
+    background: rgb(13, 110, 253);
+}
+
+@media screen and (max-width:400px) {
+
+    .needs-validation {
+        width: 100%;
+    }
+}
