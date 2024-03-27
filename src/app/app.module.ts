@@ -1,42 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {RouterModule} from "@angular/router";
-import { MainComponent } from './components/main/main.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CardsComponent } from './components/cards/cards.component';
-import { CardComponent } from './components/card/card.component';
-import {CardService} from "./services/card.service";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import { ShortenTextPipe } from './pipes/shorten-text.pipe';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CardService} from "./shared/services/card.service";
+import {HttpClientModule} from "@angular/common/http";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {CoreModule} from "./core/core.module";
+import {SharedModule} from "./shared/shared.module";
+import {MainModule} from "./views/main/main.module";
+import {CardsModule} from "./views/cards/cards.module";
+import {OrderModule} from "./views/order/order.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    HeaderComponent,
-    FooterComponent,
-    CardsComponent,
-    CardComponent,
-    ShortenTextPipe,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    NgbModule,
+    CoreModule,
+    SharedModule,
+    MainModule,
+    CardsModule,
+    OrderModule
   ],
-  providers: [CardService,
-
-  ],
+  providers: [CardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

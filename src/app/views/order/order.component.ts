@@ -1,19 +1,17 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
-import {Observable, Subscription} from "rxjs";
-import {CardService} from "../../services/card.service";
+import {CardService} from "../../shared/services/card.service";
+import {Subscription} from "rxjs";
 
-declare var $: any;
-declare var bootstrap: any;
 @Component({
-  selector: 'app-main',
-  templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss']
 })
-export class MainComponent implements OnInit, AfterViewInit {
+export class OrderComponent implements OnInit {
 
-  public subscriptionOrder: Subscription | null = null;
+  private subscription: Subscription = new Subscription() ;
 
   checkoutForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Zа-яА-Я]+$/)]],
@@ -26,44 +24,24 @@ export class MainComponent implements OnInit, AfterViewInit {
     comment: [''],
 
   })
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private cardService: CardService,
-  ) {
-
-  }
-
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private cardService: CardService) { }
 
   ngOnInit(): void {
-
-
-    $("#accordion").accordion();
-
-
     this.activatedRoute.queryParams.subscribe((params) => {
       if (params && params['card']) {
         const cardValue = params['card'];
 
-          this.checkoutForm.patchValue({
-            product: cardValue
-          });
+        this.checkoutForm.patchValue({
+          product: cardValue
+        });
 
-          // Если Input disabled, значение не передается на сервер. Вы можете попробовать
-          // this.checkoutForm.get('product')?.disable();
+
       }
     });
-
   }
-
-  ngAfterViewInit() {
-    const myModalAlternative = new bootstrap.Modal('#modal', {})
-    myModalAlternative.show();
-
-  }
-
-
   public createOrder() {
     if (this.checkoutForm.valid) {
       const formValues = this.checkoutForm.value;
-      // Ensure that formValues has all the required properties
       const data = {
         name: formValues.firstName || null,
         last_name: formValues.lastName || null,
@@ -74,10 +52,10 @@ export class MainComponent implements OnInit, AfterViewInit {
         address: formValues.address || null,
         comment: formValues.comment || null
       };
-      this.subscriptionOrder = this.cardService.createOrder(data)
+      this.subscription.add(this.cardService.createOrder(data)
         .subscribe(response => {
           console.log(response);
-        });
+        }));
     } else {
 
     }

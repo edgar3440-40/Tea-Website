@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {CardType} from "../types/card.type";
 import {HttpClient} from "@angular/common/http";
 import { Observable} from "rxjs";
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class CardService {
@@ -11,11 +12,11 @@ export class CardService {
   constructor(private http: HttpClient) { }
 
   getCards(): Observable<CardType[]> {
-    return this.http.get<CardType[]>('https://testologia.site/tea')
+    return this.http.get<CardType[]>(environment.apiURL +  'tea')
   }
 
   getCard(id:number): Observable<CardType>  {
-    return this.http.get<CardType>(`https://testologia.site/tea?id=${id}`)
+    return this.http.get<CardType>(environment.apiURL +  `tea?id=${id}`)
   }
 
   createOrder(data: {
@@ -29,6 +30,6 @@ export class CardService {
     comment?: string | null,
               }
   ) {
-    return this.http.post<{success: boolean, message?: string}>(`https://testologia.site/order-tea`, data)
+    return this.http.post<{success: boolean, message?: string}>(environment.apiURL +  `order-tea`, data)
   }
 }

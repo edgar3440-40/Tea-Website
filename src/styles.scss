@@ -32,13 +32,11 @@ body {
 }
 
 .slick-prev::before {
-  content: url("../../../Front end/Homework 9/styles/images-main/prev.svg");
   left: 8px;
 
 }
 
 .slick-next::before {
-  content: url("../../../Front end/Homework 9/styles/images-main/next-2.svg");
   left: 11px;
 }
 
@@ -55,10 +53,6 @@ body {
 }
 
 
-/*h3.ui-accordion-header.ui-corner-top.ui-accordion-header-collapsed.ui-corner-all.ui-state-default.ui-accordion-icons {*/
-/*    padding: 24px;*/
-
-/*}*/
 
 .ui-accordion .ui-accordion-header {
   padding: 24px ;
@@ -74,14 +68,14 @@ body {
 }
 
 .ui-accordion .ui-accordion-header .ui-accordion-header-icon {
-  background-image: url("../../../Front end/Homework 9/styles/images-main/acardion-brace.png");
+  background-image: url("./assets/images/acardion-brace.png");
   background-position: center;
   align-self: flex-end;
 }
 
 
 h3.ui-accordion-header.ui-corner-top.ui-state-default.ui-accordion-icons.ui-accordion-header-active span.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
-  background-image: url("../../../Front end/Homework 9/styles/images-main/accordion-active.png");
+  background-image: url("./assets/images/accordion-active.png");
 }
 
 .ui-accordion-content.ui-corner-bottom.ui-helper-reset.ui-widget-content.ui-accordion-content-active {
@@ -171,3 +165,6 @@ input.ng-invalid.ng-touched {
   display: block;
   color: red
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MainComponent} from "./components/main/main.component";
-import {CardsComponent} from "./components/cards/cards.component";
-import {CardComponent} from "./components/card/card.component";
+import {MainComponent} from "./views/main/main.component";
+import {CardsComponent} from "./views/cards/cards/cards.component";
+import {CardComponent} from "./views/cards/card/card.component";
+import {AuthGuard} from "./core/auth/auth.guard";
 
 const routes: Routes = [
   {path: '', component: MainComponent},

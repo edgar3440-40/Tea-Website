@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CardService} from "../../services/card.service";
+import {CardService} from "../../../shared/services/card.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {CardType} from "../../types/card.type";
+import {CardType} from "../../../shared/types/card.type";
 import {tap} from "rxjs";
 
 @Component({
@@ -16,6 +16,8 @@ export class CardComponent implements OnInit {
   loading: boolean = false;
 
   cardDesc: boolean = false;
+
+
   constructor(private activatedRoute: ActivatedRoute, private cardService: CardService, private router: Router) {
     this.card = {
       description: '',

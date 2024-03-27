@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {CardService} from "../../services/card.service";
-import {CardType} from "../../types/card.type";
+import {CardService} from "../../../shared/services/card.service";
+import {CardType} from "../../../shared/types/card.type";
 import {tap} from "rxjs";
 
 @Component({
