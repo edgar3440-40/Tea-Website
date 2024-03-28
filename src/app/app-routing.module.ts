@@ -6,7 +6,7 @@ import {CardComponent} from "./views/cards/card/card.component";
 import {AuthGuard} from "./core/auth/auth.guard";
 
 const routes: Routes = [
-  {path: '', component: MainComponent},
+  {path: '', component: MainComponent, canActivate: [AuthGuard]},
   {path: 'cards', component: CardsComponent},
   {path: 'cards/:id', component: CardComponent},
 
