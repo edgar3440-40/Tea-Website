@@ -1,5 +1,5 @@
-<div class="row gx-4 gy-4 d-flex justify-content-center align-items-center" id="cards">
-  <card class="d-flex justify-content-center" *ngFor="let card of cards" [card]="card"></card>
+<div class=" gx-4 gy-4 d-flex justify-content-center align-items-center" id="cards">
+  <card class="d-flex justify-content-center" id="card" *ngFor="let card of cards" [card]="card"></card>
   <div *ngIf="loading" class="loader-bg">
     <div class="loader"></div>
   </div>

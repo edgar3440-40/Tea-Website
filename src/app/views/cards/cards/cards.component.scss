@@ -1,0 +1,11 @@
+#cards {
+  width: 1200px;
+  margin: 80px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 15px;
+}
+#card {
+  width: 30% !important;
+}

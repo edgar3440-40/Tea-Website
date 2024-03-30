@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MainComponent} from "./main.component";
 import {OrderModule} from "../order/order.module";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -11,7 +12,8 @@ import {OrderModule} from "../order/order.module";
   ],
   imports: [
     CommonModule,
-    OrderModule
+    OrderModule,
+    RouterLink
   ],
   exports: [
     MainComponent

@@ -53,7 +53,6 @@ export class CardComponent implements OnInit {
           .subscribe({
             next: (data) => {
               this.card = data;
-
             },
             error: (error) => {
               this.router.navigate(['/'])

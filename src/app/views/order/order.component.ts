@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {CardService} from "../../shared/services/card.service";
 import {Subscription} from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-order',
@@ -24,7 +25,7 @@ export class OrderComponent implements OnInit {
     comment: [''],
 
   })
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private cardService: CardService) { }
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private cardService: CardService, ) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {

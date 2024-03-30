@@ -12,6 +12,7 @@ import {CardsModule} from "./views/cards/cards.module";
 import {OrderModule} from "./views/order/order.module";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +20,15 @@ import {OrderModule} from "./views/order/order.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+
     HttpClientModule,
     NgbModule,
     CoreModule,
     SharedModule,
     MainModule,
     CardsModule,
-    OrderModule
+    OrderModule,
+
   ],
   providers: [CardService],
   bootstrap: [AppComponent]

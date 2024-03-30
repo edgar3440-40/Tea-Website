@@ -4,17 +4,18 @@ import {MainComponent} from "./views/main/main.component";
 import {CardsComponent} from "./views/cards/cards/cards.component";
 import {CardComponent} from "./views/cards/card/card.component";
 import {AuthGuard} from "./core/auth/auth.guard";
+import {OrderComponent} from "./views/order/order.component";
 
 const routes: Routes = [
-  {path: '', component: MainComponent, canActivate: [AuthGuard]},
+  {path: '', component: MainComponent},
   {path: 'cards', component: CardsComponent},
   {path: 'cards/:id', component: CardComponent},
-
-  // {path: '**', redirectTo: '/'}
+  {path: 'order', component: OrderComponent},
+  {path: '**', redirectTo: '/'}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{anchorScrolling: 'enabled', useHash: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

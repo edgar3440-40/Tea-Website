@@ -34,7 +34,6 @@ export class CardsComponent implements OnInit {
             console.log(this.cards)
           },
           error: (error) => {
-
             console.log(error);
             this.router.navigate(['/']);
           }
