@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {OrderComponent} from "./order.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -9,11 +10,12 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   declarations: [
     OrderComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterLink,
+    ],
   exports: [
     OrderComponent
   ]

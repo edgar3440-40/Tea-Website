@@ -15,7 +15,7 @@ export class MainComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('popup')
   popup!: TemplateRef<ElementRef>;
-  @Input() data: string = 'Hello Dear user!!!';
+  @Input() data: string = 'Посмотрите наши чайные коллекции!!!';
 
   constructor(private modalService: NgbModal) {
 

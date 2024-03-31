@@ -1,19 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CardService} from "../../shared/services/card.service";
-import {Subscription} from "rxjs";
+import {Observable, Subscription, tap} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription = new Subscription() ;
 
+  @ViewChild('popup')
+  popup!: TemplateRef<ElementRef>;
+
+  modalService: NgbModal | null = null;
   checkoutForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Zа-яА-Я]+$/)]],
     lastName: ['', [Validators.required, Validators.pattern('^[a-zA-Zа-яА-Я]+$')]],
@@ -25,7 +30,10 @@ export class OrderComponent implements OnInit {
     comment: [''],
 
   })
-  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private cardService: CardService, ) { }
+  constructor(private fb: FormBuilder, private activatedRoute: ActivatedRoute, private cardService: CardService,
+              private router: Router, modalService: NgbModal) {
+    this.modalService = modalService;
+  }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -54,11 +62,19 @@ export class OrderComponent implements OnInit {
         comment: formValues.comment || null
       };
       this.subscription.add(this.cardService.createOrder(data)
-        .subscribe(response => {
-          console.log(response);
-        }));
+
+        .subscribe(
+          () => {
+              this.modalService?.open(this.popup)
+              },
+          ));
     } else {
 
     }
+  }
+
+  ngOnDestroy() {
+    this.modalService?.dismissAll(this.popup);
+    this.subscription.unsubscribe();
   }
 }

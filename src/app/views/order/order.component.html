@@ -66,4 +66,17 @@
     <button class="btn btn-primary px-4 py-2  hvr-shutter-in-vertical" id="submitBtn" (click)="createOrder()">Отправить</button>
   </div>
 </form>
-
+<ng-template #popup>
+  <div class="" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Thank you for order!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" [routerLink]="'/'">Go to the main</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

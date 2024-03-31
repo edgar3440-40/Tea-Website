@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import {CardService} from "./shared/services/card.service";
 import {HttpClientModule} from "@angular/common/http";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {CoreModule} from "./core/core.module";
 import {SharedModule} from "./shared/shared.module";
 import {MainModule} from "./views/main/main.module";
 import {CardsModule} from "./views/cards/cards.module";
@@ -23,7 +22,6 @@ import {OrderModule} from "./views/order/order.module";
 
     HttpClientModule,
     NgbModule,
-    CoreModule,
     SharedModule,
     MainModule,
     CardsModule,
